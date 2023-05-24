@@ -159,3 +159,132 @@ footer {
     transform: scale(1.05);
   }
 }
+
+.product-card {
+  .product-image img:last-child {
+    display: none;
+  }
+  // :hover .product-image {
+  //   > img:nth-child(1) {
+  //     display: none;
+  //   }
+  //   > img:last-child {
+  //     display: block;
+  //   }
+  // }
+  &:hover .product-image img:nth-child(1) {
+    display: none;
+  }
+  &:hover .product-image img:last-child {
+    display: block;
+  }
+}
+.flashsale {
+  background-color: #ffd391;
+  padding: 20px;
+  border-radius: 10px;
+  .product-card-sale:hover {
+    .product-sale-image {
+      transform: translateY(-10%);
+      transition: 0.2s ease-in;
+    }
+  }
+  .product-sale-details {
+    .old-price {
+      h4 {
+        color: gray;
+      }
+    }
+    .product-count-sale {
+      position: relative;
+      display: block;
+      overflow: visible;
+      margin: 15px 0 0;
+      min-height: 20px;
+      img {
+        position: absolute;
+        left: 0;
+        top: -7px;
+        width: 20px;
+        height: auto;
+        z-index: 1;
+      }
+      .count {
+        position: relative;
+        width: 100%;
+        display: block;
+        min-height: 20px;
+        padding-left: 21px;
+        background-color: #ddd;
+        border-radius: 25px;
+        line-height: 20px;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        color: #000;
+        overflow: hidden;
+        .Background {
+          display: block;
+          height: 100%;
+          // width: 50%;
+          background: #f7c913 no-repeat left top;
+          position: absolute;
+          left: 0;
+          top: 0;
+          min-width: 21px;
+        }
+        b {
+          display: block;
+          position: relative;
+          z-index: 1;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+
+.slick-slide {
+  padding: 8px;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: red !important;
+  font-size: 50px !important;
+  z-index: 10;
+}
+.slick-prev,
+.slick-next {
+  width: 50px !important;
+  height: 50px !important;
+  z-index: 10;
+}
+
+.slick-arrow:hover {
+  transform: scale(2);
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 50px !important;
+}
+
+// our store
+.Colors {
+  list-style-type: none;
+  li {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+  }
+}
+.input-price {
+  width: 100px;
+}
+.from-price {
+  margin-bottom: 10px;
+}
+
+.sort {
+  width: 150px;
+}

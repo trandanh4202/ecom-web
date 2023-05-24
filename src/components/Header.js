@@ -2,6 +2,10 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCartShopping, faLocationDot, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Badge } from '@mui/material';
+import MailIcon from '@mui/icons-material/Mail';
+
+import { ShoppingCartIcon } from '@mui/icons-material/ShoppingCart';
 
 const Header = () => {
   return (
@@ -60,6 +64,7 @@ const Header = () => {
                   Hàng
                   <span className="badge">0</span>
                 </Link>
+
                 <Link className="d-flex flex-column align-items-center justify-content-center text-white text-uppercase fs-4 ms-1">
                   <FontAwesomeIcon icon={faUser} size="2xl" /> Đăng nhập
                 </Link>
@@ -108,7 +113,7 @@ const Header = () => {
                     <NavLink className="text-white text-uppercase fs-3 " to="/">
                       Home
                     </NavLink>
-                    <NavLink className="text-white text-uppercase fs-3" to="/">
+                    <NavLink className="text-white text-uppercase fs-3" to="/Store">
                       Main Store
                     </NavLink>
                     <NavLink className="text-white text-uppercase fs-3" to="/">

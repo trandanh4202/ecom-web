@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
   return (
     <div className="col-3">
-      <a href="" className="blog-card bg-body p-3 m-3 border border-secondary-subtle rounded-4">
+      <a href="" className="w-100 blog-card bg-body p-3 m-3 border border-secondary-subtle rounded-4">
         <div className="card-image">
           <img className="img-fluid w-100" src="image/Brand/News.png" alt="" />
         </div>

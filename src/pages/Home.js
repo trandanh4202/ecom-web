@@ -2,12 +2,83 @@ import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faGift, faHandHoldingDollar, faHeadset, faTruckFast } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
 import Blog from '../components/Blog';
+import ProductCard from '../components/ProductCard';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+import ProductSale from '../components/ProductSale';
+import moment from 'moment/moment';
+//
+var settings = {
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 6,
+  slidesToScroll: 6,
+  lazyLoad: true,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 
 const Home = () => {
+  const [countdown, setCountdown] = useState(null);
+
+  // Set the target date and time
+  const targetDate = moment('2023-12-31T23:59:59');
+
+  useEffect(() => {
+    // Calculate the remaining time on component mount
+    const interval = setInterval(() => {
+      const now = moment();
+      const distance = targetDate.diff(now);
+
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Update the countdown state
+      setCountdown({ days, hours, minutes, seconds });
+
+      // Clear the interval when the target date is reached
+      if (distance < 0) {
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <section className="home-wrapper-1 py-5">
@@ -67,50 +138,60 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-wrapper-2 py-5">
+
+      <section className="home-sales py-5">
+        <div className="container-xl">
+          <div className="row flashsale">
+            <img src="image/lastweek.webp" alt="" />
+            {countdown && (
+              <div className="d-flex justify-content-center align-items-center m-3">
+                <p className="fs-2 fw-semibold ">Thời gian kết thúc sau:</p>
+                <ul className="d-flex">
+                  <li className="d-flex align-items-center justify-content-center text-danger fs-3 fw-medium ">
+                    <p className="border border-1 rounded-3 p-1 m-1 bg-body ">{countdown.days}</p>
+                    <p className="m-0 fs-2">:</p>
+                  </li>
+                  <li className="d-flex align-items-center justify-content-center text-danger fs-3 fw-medium ">
+                    <p className="border border-1 rounded-3 p-1 m-1 bg-body ">{countdown.hours}</p>
+                    <p className="m-0 fs-2">:</p>
+                  </li>
+                  <li className="d-flex align-items-center justify-content-center text-danger fs-3 fw-medium ">
+                    <p className="border border-1 rounded-3 p-1 m-1 bg-body ">{countdown.minutes}</p>
+                    <p className="m-0 fs-2">:</p>
+                  </li>
+                  <li className="d-flex align-items-center justify-content-center text-danger fs-3 fw-medium ">
+                    <p className="border border-1 rounded-3 p-1 m-1 bg-body ">{countdown.seconds}</p>
+                  </li>
+                </ul>
+              </div>
+            )}
+
+            <Slider {...settings}>
+              <ProductSale />
+              <ProductSale />
+              <ProductSale />
+              <ProductSale />
+              <ProductSale />
+              <ProductSale />
+              <ProductSale />
+              <ProductSale />
+              <ProductSale />
+            </Slider>
+          </div>
+        </div>
+      </section>
+      <section className="home-products py-5">
         <div className="container-xl">
           <div className="row">
             <div className="col-12">
-              <div className="services d-flex align-items-center justify-content-between">
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faTruckFast} className="icon-size" />
-                  <div>
-                    <h6>Freshipping</h6>
-                    <p className="mb-0">From all orders over $100</p>
-                  </div>
-                </div>
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faGift} className="icon-size" />
-                  <div>
-                    <h6>Daily Suprise Offers</h6>
-                    <p className="mb-0">Save up to 25% off</p>
-                  </div>
-                </div>
-
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faHandHoldingDollar} className="icon-size" />
-                  <div>
-                    <h6>Support 24/7</h6>
-                    <p className="mb-0">Shop with an expert</p>
-                  </div>
-                </div>
-
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faHeadset} className="icon-size" />
-                  <div>
-                    <h6>Affordable Prices</h6>
-                    <p className="mb-0">Get factory direct price</p>
-                  </div>
-                </div>
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faCreditCard} className="icon-size" />
-                  <div>
-                    <h6>Secure Payments</h6>
-                    <p className="mb-0">100% protected payments</p>
-                  </div>
-                </div>
-              </div>
+              <h1 className="home-products__title d-flex align-items-center justify-content-center text-uppercase">
+                Products
+              </h1>
             </div>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
           </div>
         </div>
       </section>
@@ -173,6 +254,53 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section className="home-wrapper-2 py-5">
+        <div className="container-xl">
+          <div className="row">
+            <div className="col-12">
+              <div className="services d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center gap-5">
+                  <FontAwesomeIcon icon={faTruckFast} className="icon-size" />
+                  <div>
+                    <h6>Freshipping</h6>
+                    <p className="mb-0">From all orders over $100</p>
+                  </div>
+                </div>
+                <div className="d-flex align-items-center gap-5">
+                  <FontAwesomeIcon icon={faGift} className="icon-size" />
+                  <div>
+                    <h6>Daily Suprise Offers</h6>
+                    <p className="mb-0">Save up to 25% off</p>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-center gap-5">
+                  <FontAwesomeIcon icon={faHandHoldingDollar} className="icon-size" />
+                  <div>
+                    <h6>Support 24/7</h6>
+                    <p className="mb-0">Shop with an expert</p>
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-center gap-5">
+                  <FontAwesomeIcon icon={faHeadset} className="icon-size" />
+                  <div>
+                    <h6>Affordable Prices</h6>
+                    <p className="mb-0">Get factory direct price</p>
+                  </div>
+                </div>
+                <div className="d-flex align-items-center gap-5">
+                  <FontAwesomeIcon icon={faCreditCard} className="icon-size" />
+                  <div>
+                    <h6>Secure Payments</h6>
+                    <p className="mb-0">100% protected payments</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="home-marquee py-5">
         <div className="container-xl">
           <div className="row">
@@ -216,13 +344,11 @@ const Home = () => {
               <h1 className="home-news__title d-flex align-items-center justify-content-center text-uppercase">
                 News about Technology
               </h1>
-              <div className="d-flex">
-                <Blog />
-                <Blog />
-                <Blog />
-                <Blog />
-              </div>
             </div>
+            <Blog />
+            <Blog />
+            <Blog />
+            <Blog />
           </div>
         </div>
       </section>
