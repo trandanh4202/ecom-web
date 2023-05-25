@@ -7,6 +7,9 @@ html {
   font-size: 62.5%;
   line-height: 1.6rem;
 }
+ul {
+  list-style-type: none;
+}
 :root {
   --header-color: #131921;
   --header-border-bottom: #3b4149;
@@ -164,14 +167,9 @@ footer {
   .product-image img:last-child {
     display: none;
   }
-  // :hover .product-image {
-  //   > img:nth-child(1) {
-  //     display: none;
-  //   }
-  //   > img:last-child {
-  //     display: block;
-  //   }
-  // }
+  .product-image img:nth-child(1) {
+    display: block;
+  }
   &:hover .product-image img:nth-child(1) {
     display: none;
   }
@@ -287,4 +285,19 @@ footer {
 
 .sort {
   width: 150px;
+}
+
+//main store
+.col-12 .product-card {
+  display: flex;
+  .product-image {
+    width: 250px;
+  }
+}
+.col-3 .product-card .product-image,
+.col-4 .product-card .product-image,
+.col-12 .product-card .product-image {
+  img {
+    margin: auto;
+  }
 }

@@ -6,7 +6,8 @@ import Home from './pages/Home';
 import './components/Modal/modal.scss';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import OurStore from './pages/OutStore';
+import OurStore from './pages/OurStore';
+import Blogs from './pages/Blogs';
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
             <Route path="About" element={<About />}></Route>
             <Route path="Contact" element={<Contact />}></Route>
             <Route path="Store" element={<OurStore />}></Route>
+            <Route path="Blogs" element={<Blogs />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,12 +1,15 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import Meta from '../components/Meta';
+import ProductCard from '../components/ProductCard';
 
 const OurStore = () => {
+  const [grid, setGrid] = useState(3);
+
   return (
     <>
-      <Meta title={'Our Store'} />
+      <Meta />
       <div className="store-wrapper py-5">
         <div className="container-xl">
           <div className="row">
@@ -118,16 +121,22 @@ const OurStore = () => {
                   </div>
                   <div className="d-flex align-items-center justify-content-center gap-3">
                     <p className="totalProducts mb-0 fs-3 me-3">21 Products</p>
-                    <div className="hideproduct bg-body-tertiary border border-1 rounded-3">
+                    <div className="hideproduct bg-body-tertiary border border-1 rounded-3" onClick={() => setGrid(3)}>
                       <FontAwesomeIcon icon={faBars} className="p-3 text-black " />
                     </div>
-                    <div className="hideproduct bg-body-tertiary border border-1 rounded-3">
+                    <div className="hideproduct bg-body-tertiary border border-1 rounded-3" onClick={() => setGrid(4)}>
                       <FontAwesomeIcon icon={faBars} className="p-3 text-black " />
                     </div>
-                    <div className="hideproduct bg-body-tertiary border border-1 rounded-3">
+                    <div className="hideproduct bg-body-tertiary border border-1 rounded-3" onClick={() => setGrid(12)}>
                       <FontAwesomeIcon icon={faBars} className="p-3 text-black " />
                     </div>
                   </div>
+                </div>
+              </div>
+              <div className="products-list pb-5">
+                <div className="d-flex gap-2 flex-wrap">
+                  {/* <ProductCard grid={grid} /> */}
+                  <ProductCard grid={grid} />
                 </div>
               </div>
             </div>

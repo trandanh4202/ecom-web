@@ -1,11 +1,11 @@
 import Helmet from 'helmet';
 import React from 'react';
 
-const Meta = (props) => {
+const Meta = () => {
   return (
     <Helmet>
       <meta charSet="utf-8" />
-      <title>{props.title}</title>
+      <title>Danh</title>
     </Helmet>
   );
 };
