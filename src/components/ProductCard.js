@@ -8,7 +8,7 @@ const ProductCard = (props) => {
   return (
     <>
       <div className={`${location.pathname === '/Store' ? `col-${grid}` : 'col-3'}`}>
-        <Link className="w-100 product-card bg-body p-3 my-3 border border-secondary-subtle rounded-4">
+        <Link to="" className="w-100 product-card bg-body p-3 my-3 border border-secondary-subtle rounded-4">
           <div className="product-image ">
             <img className="img-fluid " src="image/chuot-128x129.webp" alt="" />
             <img className="img-fluid " src="image/ban-phim-128x129.webp" alt="" />

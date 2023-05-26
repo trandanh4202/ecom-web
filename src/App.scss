@@ -243,6 +243,7 @@ footer {
   }
 }
 
+//slick-react
 .slick-slide {
   padding: 8px;
 }
@@ -266,7 +267,7 @@ footer {
   font-size: 50px !important;
 }
 
-// our store
+// Filter main store
 .Colors {
   list-style-type: none;
   li {
@@ -287,7 +288,7 @@ footer {
   width: 150px;
 }
 
-//main store
+//Product main store
 .col-12 .product-card {
   display: flex;
   .product-image {
@@ -299,5 +300,93 @@ footer {
 .col-12 .product-card .product-image {
   img {
     margin: auto;
+  }
+}
+
+//login
+.login-card,
+.forgotpassword-card,
+.register-card {
+  width: 500px;
+  margin: 30px auto;
+  .email-wrapper input,
+  .forgotpassword-card input,
+  .register-card input {
+    height: 50px;
+  }
+  .password-wrapper input {
+    height: 50px;
+  }
+  .forgot-password input {
+    height: 50px;
+  }
+}
+//single product
+
+.carousel .thumbs {
+  background-color: rgba(204, 197, 197, 0.25);
+}
+.carousel .thumb {
+  border: none;
+}
+
+.carousel .dot {
+  background-color: #000000 !important;
+}
+
+.carousel.carousel-slider:hover .control-arrow {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+.product-count {
+  border: 2px solid #f3f3f3;
+  border-radius: 5px;
+  margin-top: 40px;
+  width: 400px;
+}
+.product-count {
+  .flex-box {
+    padding: 15px 25px;
+    border-bottom: 2px solid #f3f3f3;
+    h6 {
+      font-size: 16px;
+    }
+    span {
+      font-weight: 600;
+    }
+    select {
+      background-color: #f3f3f3;
+      width: 100px;
+      height: 40px;
+      text-align: center;
+      border: 0px;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+
+      option {
+        padding: 5px;
+        font-size: 14px;
+        background-color: #fff;
+        color: #333;
+      }
+    }
+  }
+  .round-black-btn {
+    border-radius: 4px;
+    background: #000000;
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.5s ease-in-out 0s;
+  }
+  .round-black-btn:hover,
+  .round-black-btn:focus {
+    background: skyblue;
   }
 }

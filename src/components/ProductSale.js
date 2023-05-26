@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 
 const ProductSale = () => {
   return (
-    <Link className="w-100 product-card-sale bg-body border border-secondary-subtle rounded-4 d-flex align-items-center justify-content-center flex-column ">
+    <Link
+      to=":id"
+      className="w-100 product-card-sale bg-body border border-secondary-subtle rounded-4 d-flex align-items-center justify-content-center flex-column "
+    >
       <div className="product-sale-image p-5 ">
         <img className="img-fluid " src="image/chuot-128x129.webp" alt="" />
       </div>

@@ -29,7 +29,7 @@ const Contact = () => {
               </ul>
             </div>
             <div className="contact-form bg-secondary border border-1 rounded-3 p-3">
-              <form action="" className="d-flex flex-column">
+              <form className="d-flex flex-column">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label text-white fs-2">
                     Your name

@@ -65,7 +65,10 @@ const Header = () => {
                   <span className="badge">0</span>
                 </Link>
 
-                <Link className="d-flex flex-column align-items-center justify-content-center text-white text-uppercase fs-4 ms-1">
+                <Link
+                  to="/Login"
+                  className="d-flex flex-column align-items-center justify-content-center text-white text-uppercase fs-4 ms-1"
+                >
                   <FontAwesomeIcon icon={faUser} size="2xl" /> Đăng nhập
                 </Link>
               </div>
@@ -113,7 +116,7 @@ const Header = () => {
                     <NavLink className="text-white text-uppercase fs-3 " to="/">
                       Home
                     </NavLink>
-                    <NavLink className="text-white text-uppercase fs-3" to="/Store">
+                    <NavLink className="text-white text-uppercase fs-3" to="/Products">
                       Main Store
                     </NavLink>
                     <NavLink className="text-white text-uppercase fs-3" to="/Blogs">
