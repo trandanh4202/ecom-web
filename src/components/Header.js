@@ -58,7 +58,7 @@ const Header = () => {
                   Cửa hàng <br />
                   gần bạn
                 </Link>
-                <Link className="text-white d-flex align-items-center text-uppercase fs-4 ms-1">
+                <Link to="cart" className="text-white d-flex align-items-center text-uppercase fs-4 ms-1">
                   <FontAwesomeIcon icon={faCartShopping} size="2xl" />
                   Giỏ <br />
                   Hàng
