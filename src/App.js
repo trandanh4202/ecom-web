@@ -22,7 +22,9 @@ import Settings from './pages/Settings';
 import OrdersList from './pages/OrdersList';
 import Profile from './pages/Profile';
 import ProfileLayout from './components/ProfileLayout';
+import Redic from './pages/Redic';
 function App() {
+  let test = 'ProfileLayout';
   return (
     <>
       <BrowserRouter>
@@ -40,10 +42,12 @@ function App() {
             <Route path="ForgotPassword" element={<ForgotPassword />}></Route>
             <Route path="Register" element={<Register />}></Route>
             <Route path="ProfileLayout" element={<ProfileLayout />}>
-              {/* <Route index element={<Login />}></Route> */}
               <Route path="Settings" element={<Settings />}></Route>
               <Route path="OrdersList" element={<OrdersList />}></Route>
+              <Route path="*" element={<Redic />}></Route>
+              {/* <Route path="Login" element={<Home />}></Route> */}
             </Route>
+
             <Route path="PrivacyPolicy" element={<PrivacyPolicy />}></Route>
             <Route path="ShippingPolicy" element={<ShippingPolicy />}></Route>
             <Route path="TermConditions" element={<TermConditions />}></Route>

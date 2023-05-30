@@ -1,7 +1,7 @@
 import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faGift, faHandHoldingDollar, faHeadset, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { faGift, faHandHoldingDollar, faHeadset, faTruckFast, faUsers } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
@@ -12,6 +12,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import ProductSale from '../components/ProductSale';
 import moment from 'moment/moment';
+import CountUpComp from '../components/CountUpComp';
+
 //
 var settings = {
   dots: true,
@@ -127,9 +129,9 @@ const Home = () => {
                 <div className="banner-static ">
                   <img src="images/catbanner-01.jpg" alt="banner static" className="img-fluid rounded-3" />
                   <div className="banner-static__content w-50">
-                    <h4 className="fs-6   lh-base w-50">SUPERCHARED FOR PROPS</h4>
+                    <h4 className="fs-6 lh-base w-50">SUPERCHARED FOR PROPS</h4>
                     <h5 className="fs-6 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
-                    <p className="fs-6   lh-base">Form $999.00 or $41.62/mo</p>
+                    <p className="fs-6  lh-base">Form $999.00 or $41.62/mo</p>
                     <Link className="fs-6   lh-base  button-buy">Buy now</Link>
                   </div>
                 </div>
@@ -138,7 +140,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <section className="home-sales py-5">
         <div className="container-xl">
           <div className="row flashsale">
@@ -180,24 +181,9 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-products py-5">
-        <div className="container-xl">
-          <div className="row">
-            <div className="col-12">
-              <h1 className="home-products__title d-flex align-items-center justify-content-center text-uppercase">
-                Products
-              </h1>
-            </div>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </div>
-        </div>
-      </section>
       <section className="home-wrapper-3 py-5">
-        <div className="container-xl bg-body  p-5">
-          <div className="row">
+        <div className="container-xl ">
+          <div className="row bg-body p-5 rounded-3">
             <div className="col-12 ">
               <h1 className="d-flex align-items-center justify-content-center text-uppercase">Menu highlight</h1>
               <div className="menu-highlight d-flex align-items-center justify-content-between flex-wrap gap-3">
@@ -254,6 +240,23 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section className="home-products py-5">
+        <div className="container-xl ">
+          <div className="row  bg-body p-5 rounded-3">
+            <div className="col-12">
+              <h1 className="home-products__title d-flex align-items-center justify-content-center text-uppercase">
+                Products
+              </h1>
+            </div>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </div>
+        </div>
+      </section>
+      <CountUpComp />
+      {/* <CounterUp endValue={100} duration={1000} /> Đếm từ 0 đến 100 trong 1 giây */}
       <section className="home-wrapper-2 py-5">
         <div className="container-xl">
           <div className="row">

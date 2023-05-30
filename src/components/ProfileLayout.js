@@ -5,10 +5,13 @@ import Footer from './Footer';
 import Header from './Header';
 
 const ProfileLayout = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/profilelayout/Settings');
+  }, []);
   return (
     <>
       {/* <Header /> */}
-      {/* <Navigate to="/ProfileLayout/settings" />; */}
       <Profile />
       {/* <Outlet /> */}
       {/* <Footer /> */}
