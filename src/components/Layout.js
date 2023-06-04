@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <ScrollToTop smooth color="red" />
+      {/* <ScrollToTop smooth color="red" /> */}
 
       {/* <ScrollToTopByMe /> */}
       <Outlet />

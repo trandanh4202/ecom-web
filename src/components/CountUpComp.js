@@ -36,10 +36,10 @@ const CountUpComp = () => {
         <div className="row">
           {listItem.map((item) => {
             return (
-              <div className="col-3 ">
+              <div className="col-lg-3 col-6 ">
                 <CountUp start={item.start} end={item.end} delay={0} duration={10}>
                   {({ countUpRef }) => (
-                    <div className="  d-flex  flex-column align-items-center justify-content-center fs-1">
+                    <div className="  text-center fs-1">
                       <div className="d-flex flex-column py-3">
                         <FontAwesomeIcon icon={item.icon} style={{ color: '#51261f' }} />
                       </div>

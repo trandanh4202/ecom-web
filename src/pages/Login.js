@@ -35,7 +35,7 @@ const Login = () => {
                   <div className="d-flex align-items-center justify-content-center flex-column">
                     <button
                       type="submit"
-                      className="w-100 text-uppercase d-flex align-items-center justify-content-center "
+                      className=" round-black-btn w-100 text-uppercase d-flex align-items-center justify-content-center "
                     >
                       Login
                     </button>

@@ -10,7 +10,7 @@ import { ShoppingCartIcon } from '@mui/icons-material/ShoppingCart';
 const Header = () => {
   return (
     <>
-      <header>
+      <div className="header sticky-top">
         {/* <section className="header-top-strip py-3 ">
           <div className="container-xl">
             <div className="row">
@@ -31,14 +31,12 @@ const Header = () => {
         <section className="header-upper py-3">
           <div className="container-xl">
             <div className="row align-items-center">
-              <div className="col-2">
-                <h1>
-                  <Link to="/">
-                    <img className="w-50" src="/images/logo.png" alt="" />
-                  </Link>
-                </h1>
+              <div className="col-lg-2 col-2 col-md-3">
+                <Link to="/">
+                  <img className="header-logo" src="/images/logo.png" alt="" />
+                </Link>
               </div>
-              <div className="col-5">
+              <div className="col-lg-5 col-5 col-md-9 ">
                 <div className="input-group">
                   <input
                     type="text"
@@ -52,20 +50,24 @@ const Header = () => {
                   </span>
                 </div>
               </div>
-              <div className="col-5">
+              <div className="col-lg-5 col-5 col-md-12">
                 <div className="header-upper-links d-flex align-items-center justify-content-between">
                   <Link
                     to="profilelayout/settings"
                     className="d-flex align-items-center justify-content-center text-white text-uppercase fs-4 ms-1"
                   >
                     <FontAwesomeIcon icon={faLocationDot} size="2xl" />
-                    Cửa hàng <br />
-                    gần bạn
+                    <span className="header-text">
+                      Cửa hàng <br />
+                      gần bạn
+                    </span>
                   </Link>
                   <Link to="cart" className="text-white d-flex align-items-center text-uppercase fs-4 ms-1">
                     <FontAwesomeIcon icon={faCartShopping} size="2xl" />
-                    Giỏ <br />
-                    Hàng
+                    <span className="header-text">
+                      Giỏ <br />
+                      Hàng
+                    </span>
                     <span className="badge">0</span>
                   </Link>
 
@@ -73,7 +75,7 @@ const Header = () => {
                     to="Login"
                     className="d-flex flex-column align-items-center justify-content-center text-white text-uppercase fs-4 ms-1"
                   >
-                    <FontAwesomeIcon icon={faUser} size="2xl" /> Đăng nhập
+                    <FontAwesomeIcon icon={faUser} size="2xl" /> <span className="header-text">Đăng nhập</span>
                   </Link>
                 </div>
               </div>
@@ -136,7 +138,7 @@ const Header = () => {
             </div>
           </div>
         </section>
-      </header>
+      </div>
     </>
   );
 };

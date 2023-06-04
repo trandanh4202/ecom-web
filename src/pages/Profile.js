@@ -21,7 +21,7 @@ const Profile = () => {
                 <div className="item-menu fs-2">
                   <NavLink to="Settings" className="LinkBar nav-link">
                     <FontAwesomeIcon icon={faUserTie} className="mx-4" />
-                    <span>Thông tin tài khoảng</span>
+                    <span>Thông tin tài khoản</span>
                   </NavLink>
                 </div>
                 <div className="item-menu fs-2">

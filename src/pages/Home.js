@@ -16,7 +16,7 @@ import CountUpComp from '../components/CountUpComp';
 
 //
 var settings = {
-  dots: true,
+  dots: false,
   infinite: false,
   speed: 500,
   slidesToShow: 6,
@@ -30,22 +30,22 @@ var settings = {
         slidesToShow: 5,
         slidesToScroll: 5,
         infinite: true,
-        dots: true,
+        dots: false,
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 800,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        initialSlide: 2,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        initialSlide: 3,
       },
     },
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToShow: 2,
+        slidesToScroll: 2,
       },
     },
   ],
@@ -86,7 +86,7 @@ const Home = () => {
       <section className="home-wrapper-1 py-5">
         <div className="container-xl">
           <div className="row d-flex align-items-center justify-content-center">
-            <div className="col-6">
+            <div className="col-lg-6 col-12 mb-2">
               <div className="banner-slider ">
                 <img src="images/main-banner.jpg" alt="main banner" className="img-fluid rounded-3" />
                 <div className="banner-slider__content ">
@@ -97,42 +97,42 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-lg-6 col-12">
               <div className="d-flex gap-3 align-items-center justify-content-between flex-wrap">
-                <div className="banner-static ">
+                <div className="banner-static  ">
                   <img src="images/catbanner-01.jpg" alt="banner static" className="img-fluid rounded-3" />
                   <div className="banner-static__content w-50">
-                    <h4 className="fs-6   lh-base w-50">SUPERCHARED FOR PROPS</h4>
-                    <h5 className="fs-6 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
-                    <p className="fs-6   lh-base">Form $999.00 or $41.62/mo</p>
-                    <Link className="fs-6   lh-base  button-buy">Buy now</Link>
+                    <h4 className="fs-5   lh-base ">SUPERCHARED FOR PROPS</h4>
+                    <h5 className="fs-5 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
+                    <p className="fs-5   lh-base">Form $999.00 or $41.62/mo</p>
+                    <Link className="fs-5   lh-base  button-buy">Buy now</Link>
                   </div>
                 </div>
-                <div className="banner-static ">
+                <div className="banner-static  ">
                   <img src="images/catbanner-01.jpg" alt="banner static" className="img-fluid rounded-3" />
                   <div className="banner-static__content w-50">
-                    <h4 className="fs-6   lh-base w-50">SUPERCHARED FOR PROPS</h4>
-                    <h5 className="fs-6 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
-                    <p className="fs-6   lh-base">Form $999.00 or $41.62/mo</p>
-                    <Link className="fs-6   lh-base  button-buy">Buy now</Link>
+                    <h4 className="fs-5   lh-base ">SUPERCHARED FOR PROPS</h4>
+                    <h5 className="fs-5 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
+                    <p className="fs-5   lh-base">Form $999.00 or $41.62/mo</p>
+                    <Link className="fs-5   lh-base  button-buy">Buy now</Link>
                   </div>
                 </div>
-                <div className="banner-static ">
+                <div className="banner-static  ">
                   <img src="images/catbanner-01.jpg" alt="banner static" className="img-fluid rounded-3" />
                   <div className="banner-static__content w-50">
-                    <h4 className="fs-6   lh-base w-50">SUPERCHARED FOR PROPS</h4>
-                    <h5 className="fs-6 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
-                    <p className="fs-6   lh-base">Form $999.00 or $41.62/mo</p>
-                    <Link className="fs-6   lh-base  button-buy">Buy now</Link>
+                    <h4 className="fs-5   lh-base ">SUPERCHARED FOR PROPS</h4>
+                    <h5 className="fs-5 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
+                    <p className="fs-5   lh-base">Form $999.00 or $41.62/mo</p>
+                    <Link className="fs-5   lh-base  button-buy">Buy now</Link>
                   </div>
                 </div>
-                <div className="banner-static ">
+                <div className="banner-static  ">
                   <img src="images/catbanner-01.jpg" alt="banner static" className="img-fluid rounded-3" />
                   <div className="banner-static__content w-50">
-                    <h4 className="fs-6 lh-base w-50">SUPERCHARED FOR PROPS</h4>
-                    <h5 className="fs-6 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
-                    <p className="fs-6  lh-base">Form $999.00 or $41.62/mo</p>
-                    <Link className="fs-6   lh-base  button-buy">Buy now</Link>
+                    <h4 className="fs-5   lh-base ">SUPERCHARED FOR PROPS</h4>
+                    <h5 className="fs-5 text-uppercase fw-bold lh-lg">iPad S13+ Pro</h5>
+                    <p className="fs-5   lh-base">Form $999.00 or $41.62/mo</p>
+                    <Link className="fs-5   lh-base  button-buy">Buy now</Link>
                   </div>
                 </div>
               </div>
@@ -140,12 +140,12 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-sales py-5">
-        <div className="container-xl">
-          <div className="row flashsale">
+      <section className="home-sales py-5 ">
+        <div className="container-xl ">
+          <div className="row flashsale py-5">
             <img src="image/lastweek.webp" alt="" />
             {countdown && (
-              <div className="d-flex justify-content-center align-items-center m-3">
+              <div className="d-flex justify-content-center align-items-center ">
                 <p className="fs-2 fw-semibold ">Thời gian kết thúc sau:</p>
                 <ul className="d-flex">
                   <li className="d-flex align-items-center justify-content-center text-danger fs-3 fw-medium ">
@@ -175,64 +175,62 @@ const Home = () => {
               <ProductSale />
               <ProductSale />
               <ProductSale />
-              <ProductSale />
-              <ProductSale />
             </Slider>
           </div>
         </div>
       </section>
       <section className="home-wrapper-3 py-5">
         <div className="container-xl ">
-          <div className="row bg-body p-5 rounded-3">
+          <div className="row bg-body rounded-3 py-5">
             <div className="col-12 ">
-              <h1 className="d-flex align-items-center justify-content-center text-uppercase">Menu highlight</h1>
-              <div className="menu-highlight d-flex align-items-center justify-content-between flex-wrap gap-3">
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/dien-thoai-doc-quyen-128x128.webp" alt="" />
+              <h1 className="text-center text-uppercase">Menu highlight</h1>
+              <div className="menu-highlight d-flex justify-content-between align-items-center flex-wrap ">
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/dien-thoai-doc-quyen-128x128.webp" alt="" className="img-fluid" />
                   <h3>Smartphone</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Laptop-129x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center">
+                  <img src="image/Donghothoitrang-128x129.webp" alt="" className="img-fluid" />
                   <h3>Laptop</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Donghothoitrang-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center">
+                  <img src="image/Donghothoitrang-128x129.webp" alt="" className="img-fluid" />
                   <h3>Fashion Watches</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/ban-phim-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center">
+                  <img src="image/ban-phim-128x129.webp" alt="" className="img-fluid" />
                   <h3>Keyboard</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/chuot-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/chuot-128x129.webp" alt="" className="img-fluid" />
                   <h3>Mouse</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Manhinhmaytinh-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/Manhinhmaytinh-128x129.webp" alt="" className="img-fluid" />
                   <h3>Screen Desktop</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Maytinhbo-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/Maytinhbo-128x129.webp" alt="" className="img-fluid" />
                   <h3>PC case</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Phukiengaming-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/Phukiengaming-128x129.webp" alt="" className="img-fluid" />
                   <h3>Gaming Gear</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Sacduphong-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/Sacduphong-128x129.webp" alt="" className="img-fluid" />
                   <h3>Backup Charger</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Tablet-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/Tablet-128x129.webp" alt="" className="img-fluid" />
                   <h3>Table</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Tainghe-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/Tainghe-128x129.webp" alt="" className="img-fluid" />
                   <h3>Headphone</h3>
                 </div>
-                <div className="w-15 d-flex justify-content-center align-items-center flex-column">
-                  <img src="image/Donghothongminh-128x129.webp" alt="" />
+                <div className="col-lg-2 col-3 text-center ">
+                  <img src="image/Donghothongminh-128x129.webp" alt="" className="img-fluid" />
                   <h3>Smart Watch</h3>
                 </div>
               </div>
@@ -242,69 +240,66 @@ const Home = () => {
       </section>
       <section className="home-products py-5">
         <div className="container-xl ">
-          <div className="row  bg-body p-5 rounded-3">
+          <div className="row  bg-body py-5 rounded-3">
             <div className="col-12">
-              <h1 className="home-products__title d-flex align-items-center justify-content-center text-uppercase">
-                Products
-              </h1>
+              <h1 className="home-products__title text-center text-uppercase">Products</h1>
             </div>
             <ProductCard />
             <ProductCard />
             <ProductCard />
             <ProductCard />
+            <Link to="products" className="border border-1 rounded-3 text-center bg-danger">
+              View All !
+            </Link>
           </div>
         </div>
       </section>
       <CountUpComp />
-      {/* <CounterUp endValue={100} duration={1000} /> Đếm từ 0 đến 100 trong 1 giây */}
-      <section className="home-wrapper-2 py-5">
+      <section className="home-wrapper-2 py-5 ">
         <div className="container-xl">
           <div className="row">
-            <div className="col-12">
-              <div className="services d-flex align-items-center justify-content-between">
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faTruckFast} className="icon-size" />
-                  <div>
-                    <h6>Freshipping</h6>
-                    <p className="mb-0">From all orders over $100</p>
-                  </div>
+            <div className="col-12 d-flex align-items-center justify-content-between flex-wrap gap-5">
+              <div className="d-flex align-items-center  gap-5 w-110">
+                <FontAwesomeIcon icon={faTruckFast} className="icon-size" />
+                <div>
+                  <h6>Freshipping</h6>
+                  <p className="mb-0 ">From all orders over $100</p>
                 </div>
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faGift} className="icon-size" />
-                  <div>
-                    <h6>Daily Suprise Offers</h6>
-                    <p className="mb-0">Save up to 25% off</p>
-                  </div>
+              </div>
+              <div className="d-flex align-items-center gap-5 w-110">
+                <FontAwesomeIcon icon={faGift} className="icon-size" />
+                <div>
+                  <h6>Daily Suprise Offers</h6>
+                  <p className="mb-0">Save up to 25% off</p>
                 </div>
+              </div>
 
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faHandHoldingDollar} className="icon-size" />
-                  <div>
-                    <h6>Support 24/7</h6>
-                    <p className="mb-0">Shop with an expert</p>
-                  </div>
+              <div className="d-flex align-items-center gap-5 w-110">
+                <FontAwesomeIcon icon={faHandHoldingDollar} className="icon-size" />
+                <div>
+                  <h6>Support 24/7</h6>
+                  <p className="mb-0">Shop with an expert</p>
                 </div>
-
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faHeadset} className="icon-size" />
-                  <div>
-                    <h6>Affordable Prices</h6>
-                    <p className="mb-0">Get factory direct price</p>
-                  </div>
+              </div>
+              <div className="d-flex align-items-center gap-5 w-110">
+                <FontAwesomeIcon icon={faHeadset} className="icon-size" />
+                <div>
+                  <h6>Affordable Prices</h6>
+                  <p className="mb-0">Get factory direct price</p>
                 </div>
-                <div className="d-flex align-items-center gap-5">
-                  <FontAwesomeIcon icon={faCreditCard} className="icon-size" />
-                  <div>
-                    <h6>Secure Payments</h6>
-                    <p className="mb-0">100% protected payments</p>
-                  </div>
+              </div>
+              <div className="d-flex align-items-center gap-5">
+                <FontAwesomeIcon icon={faCreditCard} className="icon-size" />
+                <div>
+                  <h6>Secure Payments</h6>
+                  <p className="mb-0">100% protected payments</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="home-marquee py-5">
+      <section className="home-marquee ">
         <div className="container-xl">
           <div className="row">
             <div className="col-12">
@@ -344,9 +339,7 @@ const Home = () => {
         <div className="container-xl">
           <div className="row">
             <div className="col-12">
-              <h1 className="home-news__title d-flex align-items-center justify-content-center text-uppercase">
-                News about Technology
-              </h1>
+              <h1 className="home-news__title text-center text-uppercase">News about Technology</h1>
             </div>
             <Blog />
             <Blog />
