@@ -70,10 +70,24 @@
       }
     }
   }
-  .display {
-    display: block;
+  .display-mobile {
+    display: block !important;
   }
-  .display-filter {
-    display: none;
+  .display-desktop {
+    display: none !important;
+  }
+  .sort {
+    min-width: 75px;
+  }
+  .product-name {
+    width: 50%;
+  }
+  .input-price {
+    width: 70px;
+  }
+  .checkout-wrapper {
+    .confirm {
+      gap: 0 !important;
+    }
   }
 }

@@ -45,7 +45,7 @@ const SingleProduct = () => {
       <div className="SingleProduct-view py-5">
         <div className="container-xl">
           <div className="row">
-            <div className="col-6">
+            <div className="col-lg-6 col-12">
               <div className="image-wrapper py-5 bg-body border border-1 rounded-3">
                 <Carousel>
                   <div>
@@ -72,7 +72,7 @@ const SingleProduct = () => {
                 </Carousel>
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-lg-6 col-12">
               <div className="product-details p-3 ms-5">
                 <div className="product-info w-100">
                   <div className="product-name fs-1 fw-bold mb-5">IPPPP</div>
@@ -80,7 +80,7 @@ const SingleProduct = () => {
                 <div className="product-description">
                   <p className="fs-2 text-body-tertiary lh-base">dsadsadsadsadsadsadsa</p>
                 </div>
-                <div className="product-count border border-1 rounded-3">
+                <div className="product-count border border-1 rounded-3 w-100">
                   <div className="flex-box d-flex justify-content-between align-items-center border-bottom">
                     <h6 className="fs-3">Price</h6>
                     <span className="fw-medium fs-4">$100</span>

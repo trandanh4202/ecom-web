@@ -175,10 +175,10 @@ const Checkout = () => {
         <div className="container-xl bg-body shadow-lg">
           <div className="row p-5">
             <div className="col-12 d-flex gap-3">
-              <div className="col-9">
+              <div className="col-lg-9 display-desktop">
                 <img src="image/lastweek.webp" className="img-fluid" alt="" />
               </div>
-              <div className="col-3">
+              <div className="col-lg-3 col-12">
                 <table className="table table-bordered">
                   <tbody>
                     <tr>
@@ -209,11 +209,11 @@ const Checkout = () => {
                 </table>
               </div>
             </div>
-            <div className="col-12 gap-3 d-flex align-items-center justify-content-between">
-              <div className="col-9">
+            <div className="confirm col-12 gap-3 d-flex align-items-center justify-content-between">
+              <div className="col-lg-9 col-8">
                 <p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản Shopee</p>
               </div>
-              <div className="col-3">
+              <div className="col-lg-3 col-4">
                 <button
                   className="btn btn-dark round-black-btn"
                   // onClick={AddToCartHanddle}

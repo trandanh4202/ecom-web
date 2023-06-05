@@ -123,11 +123,11 @@ const Cart = () => {
               {/* </div> */}
             </div>
 
-            <div className="col-12 d-flex ">
-              <div className="col-6  ">
+            <div className="col-12 d-flex align-items-center justify-content-between">
+              <div className="col-6">
                 <Link
-                  to="/product"
-                  className="button d-flex align-items-center justify-content-center w-100 fs-2 text-black text-uppercase border border-1 bg-dark"
+                  to="/products"
+                  className=" text-white w-100 text-center d-flex justify-content-center align-items-center  fs-3  text-uppercase border border-1 round-black-btn"
                 >
                   Continue To Shopping
                 </Link>
@@ -135,7 +135,7 @@ const Cart = () => {
               <div className="col-6">
                 <Link
                   to="/checkout"
-                  className="button d-flex align-items-center justify-content-center w-100 fs-2 text-black text-uppercase border border-1 bg-dark"
+                  className=" text-white w-100 text-center d-flex justify-content-center align-items-center fs-3  text-uppercase border border-1 round-black-btn"
                 >
                   Checkout
                 </Link>

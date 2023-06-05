@@ -5,15 +5,16 @@ import { Link, useLocation } from 'react-router-dom';
 const ProductCard = (props) => {
   const { grid } = props;
   let location = useLocation();
+  // console.log(grid);
   return (
     <>
-      <div className={`${location.pathname === '/Products' ? `col-${grid}` : 'col-lg-3 col-6'}`}>
+      <div className={`${location.pathname === '/Products' ? `col-lg-${grid} col-${grid}` : 'col-lg-3 col-6'}`}>
         <Link to="" className="w-100 product-card  bg-body p-3 my-3 border border-secondary-subtle rounded-4">
-          <div className="product-image d-flex align-items-center justify-content-center ">
-            <img className="img-fluid " src="image/chuot-128x129.webp" alt="" />
-            <img className="img-fluid " src="image/ban-phim-128x129.webp" alt="" />
+          <div className="product-image w-100 d-flex align-items-center justify-content-center ">
+            <img className=" " src="image/ban-phim-128x129.webp" alt="banphim" />
+            <img className=" " src="image/chuot-128x129.webp" alt="chuot" />
           </div>
-          <div className="product-details w-100 ">
+          <div className="product-details w-100 overflow-hidden">
             <div className="product-name py-3 text-black fs-2 fw-semibold text-truncate ">
               Lenovo Gaming 5555555555555555555
             </div>
@@ -25,7 +26,7 @@ const ProductCard = (props) => {
               </div>
             </div>
             <Rating name="half-rating-read" size="large" defaultValue={2.5} precision={0.5} readOnly />
-            <p className={`"mb-0 me-5 desc fs-6 text-black-50 " ${grid === 12 ? 'd-block' : 'd-none'}`}>
+            <p className={`"mb-0 me-5 desc fs-6 text-black-50 display-desktop ${grid === 12 ? 'd-block' : 'd-none'}`}>
               Tran Trong Danh Tran Trong Danh Tran Trong Danh Tran Trong Danh Tran Trong Danh Tran Trong Danh Tran
               TrongTran Trong Danh Tran Trong Danh Tran Trong Danh Tran Trong Danh Tran Trong Danh Tran Trong Danh Tran
               Trong Danh Tran Trong Danh Danh Tran Trong Danh
