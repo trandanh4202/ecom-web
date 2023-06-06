@@ -6,20 +6,20 @@ const Checkout = () => {
   return (
     <>
       <section className="address-wrapper py-5 ">
-        <div className="container-xl bg-body shadow-lg">
+        <div className="container-xl bg-body shadow-lg pb-5 px-5">
           <div className="row">
-            <div className="col-12 p-5 ">
+            <div className="col-12">
               <div className="border-top-info "></div>
               <div className="address-title d-flex my-3 align-items-center justify-content-center ">
                 <span className="fs-1 fs-bold text-uppercase">Thông tin đặt hàng</span>
               </div>
-              <div className="address-info d-flex   ">
+              <div className="address-info row ">
                 {/* <h1 className="ms-5 me-3">Trần Trọng Danh</h1>
                 <h2 className="ms-5 me-3">0913 423 421</h2>
                 <p className="ms-5 me-3">142 tô ký, xã thới tam thôn, huyện hóc môn, Tp.HCM</p> */}
-                <div className="col-4">
+                <div className="col-lg-4 col-6">
                   <div className="row">
-                    <div className="col-md-4 center d-flex  justify-content-center rounded-3">
+                    <div className="col-4 text-center">
                       <div className="alert-success fs-3 ">
                         <FontAwesomeIcon icon={faUser} size="2xl" />{' '}
                       </div>
@@ -37,14 +37,14 @@ const Checkout = () => {
                   </div>
                 </div>
                 {/* 2 */}
-                <div className="col-4  ">
+                <div className="col-lg-4 col-6 ">
                   <div className="row">
-                    <div className="col-4 center d-flex align-items-center justify-content-center rounded-3">
+                    <div className="col-4 text-center">
                       <div className="alert-success fs-3 ">
                         <FontAwesomeIcon icon={faTruck} size="2xl" />{' '}
                       </div>
                     </div>
-                    <div className="col-md-8 center">
+                    <div className="col-8 ">
                       <h5>
                         <strong>Order info</strong>
                       </h5>
@@ -53,14 +53,14 @@ const Checkout = () => {
                   </div>
                 </div>
                 {/* 3 */}
-                <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
+                <div className="col-lg-4 col-12 mt-3 mt-md-0">
                   <div className="row">
-                    <div className="col-md-4 center d-flex align-items-center justify-content-center rounded-3">
+                    <div className="col-lg-4 col-2 text-center">
                       <div className="alert-success fs-3 ">
                         <FontAwesomeIcon icon={faLocationDot} size="2xl" />
                       </div>
                     </div>
-                    <div className="col-md-8 center">
+                    <div className="col-lg-8 col-10 ">
                       <h5>
                         <strong>Deliver to</strong>
                       </h5>
@@ -74,8 +74,8 @@ const Checkout = () => {
         </div>
       </section>
       <section className="products-wrapper py-5 ">
-        <div className="container-xl bg-body shadow-lg">
-          <div className="row p-5">
+        <div className="container-xl bg-body shadow-lg p-5">
+          <div className="row ">
             <div className="col-12">
               <div className="cart-header w-100 py-3 d-flex justify-content-center align-items-center">
                 <h4 className="col-6 fs-2 text-secondary ">Product</h4>
@@ -172,8 +172,8 @@ const Checkout = () => {
         </div>
       </section>
       <section className="checkout-wrapper py-5">
-        <div className="container-xl bg-body shadow-lg">
-          <div className="row p-5">
+        <div className="container-xl bg-body shadow-lg p-5">
+          <div className="row ">
             <div className="col-12 d-flex gap-3">
               <div className="col-lg-9 display-desktop">
                 <img src="image/lastweek.webp" className="img-fluid" alt="" />
@@ -209,13 +209,13 @@ const Checkout = () => {
                 </table>
               </div>
             </div>
-            <div className="confirm col-12 gap-3 d-flex align-items-center justify-content-between">
+            <div className="confirm col-12 my-3 gap-3 d-flex align-items-center justify-content-between ">
               <div className="col-lg-9 col-8">
                 <p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản Shopee</p>
               </div>
               <div className="col-lg-3 col-4">
                 <button
-                  className="btn btn-dark round-black-btn"
+                  className="btn btn-dark round-black-btn "
                   // onClick={AddToCartHanddle}
                 >
                   Check Out

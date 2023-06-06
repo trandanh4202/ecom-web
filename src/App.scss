@@ -326,7 +326,11 @@ footer {
 }
 
 // Filter main store
+.toggle-filter {
+  padding: 15px 0;
+}
 .store-wrapper {
+  z-index: 1;
   .filter-card {
     .filter-title {
       font-size: 2rem;
@@ -382,7 +386,7 @@ footer {
 .login-card,
 .forgotpassword-card,
 .register-card {
-  width: 500px;
+  width: 50%;
   margin: 30px auto;
   .email-wrapper input,
   .forgotpassword-card input,
