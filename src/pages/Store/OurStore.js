@@ -1,8 +1,8 @@
 import { faBars, faFilter, faRotateRight, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import Meta from '../components/Meta';
-import ProductCard from '../components/ProductCard';
+import Meta from '../../components/Meta/Meta';
+import ProductCard from '../../components/Product/ProductCard';
 
 const OurStore = () => {
   const [grid, setGrid] = useState(6);

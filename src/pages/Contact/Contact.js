@@ -7,7 +7,7 @@ const Contact = () => {
     <div className="contact-wrapper py-5">
       <div className="container-xl">
         <div className="row">
-          <div className="col-3">
+          <div className="col-lg-3 col-12 mb-5">
             <div className="contact-infor text-black  ">
               <h1>Contact to </h1>
               <ul className="ps-0 ">
@@ -75,7 +75,7 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div className="col-9">
+          <div className="col-lg-9 col-12 mt-5">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.172515935969!2d106.6096484739462!3d10.874479857379624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752a0ebd37c0e9%3A0x80a9d948075d56f1!2zMTQyIFTDtCBLw70sIFRydW5nIE3hu7kgVMOieSwgSMOzYyBNw7RuLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1685031072533!5m2!1svi!2s"
               width="600"

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Redic = () => {
+const Redirect = () => {
   const navigate = useNavigate();
   useEffect(() => {
     navigate('/profilelayout/Settings');
   }, []);
-  return <div>Redic</div>;
+  return <div>Redirect</div>;
 };
 
-export default Redic;
+export default Redirect;
