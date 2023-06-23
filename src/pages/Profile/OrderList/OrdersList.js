@@ -109,19 +109,6 @@ const OrdersList = () => {
         </div>
       </div>
       <div className="col-9 ">
-        {/* <div className="col-12 alert alert-info text-center mt-3">
-            No Orders
-            <Link
-              className="btn btn-success mx-2 px-3 py-2"
-              to="/"
-              style={{
-                fontSize: "12px",
-              }}
-            >
-              START SHOPPING
-            </Link>
-          </div> */}
-
         <div className="table-responsive w-100 p-4 bg-body rounded-4  shadow ">
           <table className="table">
             <thead>

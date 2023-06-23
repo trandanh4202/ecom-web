@@ -241,10 +241,7 @@ const OurStore = () => {
                         className="input-price  fs-3 border rounded-3 border-1 p-2"
                       />
                     </div>
-                    <button
-                      type="submit"
-                      className="w-50 fs-3 bg-danger d-flex align-items-center justify-content-center"
-                    >
+                    <button type="submit" className="w-50 fs-3 btn btn-danger">
                       Check
                     </button>
                   </form>

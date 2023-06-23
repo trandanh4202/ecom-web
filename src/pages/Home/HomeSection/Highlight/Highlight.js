@@ -6,7 +6,7 @@ const Highlight = () => {
       <div className="container-xl ">
         <div className="row bg-body rounded-3 py-5">
           <div className="col-12 ">
-            <h1 className="text-center text-uppercase">Menu highlight</h1>
+            <h1 className="text-center text-uppercase mb-5">Menu highlight</h1>
             <div className="menu-highlight d-flex justify-content-between align-items-center flex-wrap ">
               <div className="col-lg-2 col-3 text-center ">
                 <img src="image/dien-thoai-doc-quyen-128x128.webp" alt="" className="img-fluid" />

@@ -10,14 +10,17 @@ const News = () => {
       <div className="container-xl">
         <div className="row">
           <div className="col-12">
-            <h1 className="home-news__title text-center text-uppercase">News about Technology</h1>
+            <h1 className="home-news__title text-center text-uppercase mb-5">News about Technology</h1>
           </div>
           <Blog />
           <Blog />
           <Blog />
           <Blog />
           <div className="text-center">
-            <Link to="blogs" className="btn p-3 border border-1 rounded-3 text-center bg-danger">
+            <Link
+              to="blogs"
+              className="btn p-3 round-black-btn w-25 text-white border border-1 rounded-3 text-center bg-danger"
+            >
               <FontAwesomeIcon icon={faDownLong} />
               <span>View all!</span>
             </Link>

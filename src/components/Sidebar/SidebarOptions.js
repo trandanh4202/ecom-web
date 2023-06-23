@@ -33,11 +33,11 @@ const SidebarOptions = () => {
             // the active class will be added automatically by react router
             // so we can use it to style the active menu item
             [`&.active`]: {
-              backgroundColor: '#fee',
-              color: '#e11b1e',
+              backgroundColor: '#f3f5fc',
+              color: '#0d6efd',
             },
             [`&:hover`]: {
-              backgroundColor: 'red',
+              backgroundColor: '#f3f5fc',
             },
             [`&>span`]: {
               fontSize: '20px',
@@ -49,7 +49,7 @@ const SidebarOptions = () => {
           label="INFORMATION"
           rootStyles={{
             [`&.ps-open`]: {
-              backgroundColor: '#fee',
+              backgroundColor: '#f3f5fc',
             },
           }}
           icon={<FontAwesomeIcon icon={faGear} />}

@@ -8,9 +8,9 @@ const Cart = () => {
     <>
       <section className="cart-wrapper py-5 ">
         <div className="container-xl">
-          <div className="row">
+          <div className="row bg-body rounded-5 p-5 cart-wrapper__box">
             <div className="col-12">
-              <div className="cart-header w-100 py-3 d-flex justify-content-center align-items-center">
+              <div className="cart-header  w-100 py-3 d-flex justify-content-center align-items-center">
                 <div className="col-1">
                   <input className="select-all" type="checkbox" />
                 </div>
@@ -19,7 +19,7 @@ const Cart = () => {
                 <h4 className="col-2 fs-2 text-secondary">Quantity</h4>
                 <h4 className="col-2 fs-2 text-secondary d-flex justify-content-end align-items-center">Total</h4>
               </div>
-              <div className="cart-data w-100 py-3 mb-2 d-flex justify-content-between align-items-center">
+              <div className="cart-data  w-100 py-3 mb-2 d-flex justify-content-between align-items-center">
                 <div className="col-1">
                   <input type="checkbox" value={1} />
                 </div>
