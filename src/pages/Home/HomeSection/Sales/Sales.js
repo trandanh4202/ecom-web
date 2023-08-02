@@ -1,8 +1,10 @@
 import moment from 'moment/moment';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import ProductSale from '~/components/Product/ProductSale';
+import { getProducts } from '~/features/products/productsSlice';
 var settings = {
   dots: false,
   infinite: false,
@@ -39,10 +41,20 @@ var settings = {
   ],
 };
 const Sales = () => {
+  const [paginationModel, setPaginationModel] = useState({
+    page: 1,
+    pageSize: 8,
+  });
   const [countdown, setCountdown] = useState(null);
+  const targetDate = moment('2023-12-31T23:59:59');
+
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products?.products?.products);
+  // useEffect(() => {
+  //   dispatch(getProducts({ paginationModel }));
+  // }, [dispatch, paginationModel]);
 
   // Set the target date and time
-  const targetDate = moment('2023-12-31T23:59:59');
 
   useEffect(() => {
     // Calculate the remaining time on component mount
@@ -97,13 +109,22 @@ const Sales = () => {
           )}
 
           <Slider {...settings}>
-            <ProductSale />
-            <ProductSale />
-            <ProductSale />
-            <ProductSale />
-            <ProductSale />
-            <ProductSale />
-            <ProductSale />
+            {products &&
+              products.map((product) => {
+                return (
+                  <ProductSale
+                    id={product.id}
+                    name={product.name}
+                    price={product.price}
+                    basePrice={product.basePrice}
+                    imageUrl={product.imageUrl}
+                    percentSale={product.percentSale}
+                    averageRating={product.averageRating}
+                    quantity={product.quantity}
+                    soldQuantity={product.soldQuantity}
+                  />
+                );
+              })}
           </Slider>
         </div>
       </div>

@@ -6,10 +6,14 @@ import { RouterProvider } from 'react-router-dom';
 import './components/Modal/modal.scss';
 
 import router from './routes/routes';
+import { Provider } from 'react-redux';
+import { store } from './features/store';
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </>
   );
 }

@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+    console.log(showPassword);
+  };
   return (
     <>
       <section className="login-wrapper py-5">
@@ -21,11 +27,15 @@ const Login = () => {
                   </div>
                   <div className="password-wrapper border border-1 rounded-3">
                     <input
-                      type="password"
-                      name="password"
+                      type={showPassword ? 'text' : 'password'}
                       placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
                       className="form-control fs-3 bg-body-tertiary"
+                      value={password}
                     />
+                    <span className="password-toggle-icon" onClick={handleTogglePassword}>
+                      <i className={showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
+                    </span>
                   </div>
                   <div className="forgot-password">
                     <Link to="/ForgotPassword" className="text-primary fs-3 my-2">

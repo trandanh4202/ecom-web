@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+    console.log(showPassword);
+  };
   return (
     <section className="register-wrapper py-5">
       <div className="container-xl">
@@ -38,19 +46,27 @@ const Register = () => {
                 </div>
                 <div className="password-wrapper my-3 border border-1 rounded-3">
                   <input
-                    type="password"
-                    name="password"
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
                     className="form-control fs-3 bg-body-tertiary"
+                    value={password}
                   />
+                  <span className="password-toggle-icon" onClick={handleTogglePassword}>
+                    <i className={showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
+                  </span>
                 </div>
                 <div className="password-wrapper border border-1 rounded-3">
                   <input
-                    type="password"
-                    name="password"
-                    placeholder="Confirm password"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Confirm Password"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     className="form-control fs-3 bg-body-tertiary"
+                    value={confirmPassword}
                   />
+                  <span className="password-toggle-icon" onClick={handleTogglePassword}>
+                    <i className={showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
+                  </span>
                 </div>
                 <div className="d-flex align-items-center justify-content-center flex-column">
                   <button

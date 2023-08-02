@@ -6,15 +6,18 @@ import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-s
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import useDebounce from '~/Hooks/useDebounce';
 import classNames from 'classnames/bind';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '~/features/products/productsSlice';
+import { Link, useNavigate } from 'react-router-dom';
 
 // const cx = classNames.bind(styles);
 
 const Search = () => {
-  const [searchResult, setSearchResult] = useState([]);
+  const [searchResult, setSearchResult] = useState([1]);
   const [searchValue, setSearchValue] = useState('');
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const dispatch = useDispatch()
   const inputRef = useRef();
   const debounced = useDebounce(searchValue, 500);
   const handleHideResult = () => {
@@ -26,37 +29,44 @@ const Search = () => {
       setSearchValue(searchValue);
     }
   };
-  //   useEffect(() => {
-  //     if (!debounced.trim()) {
-  //       setSearchResult([]);
-  //       return;
-  //     }
-
-  //     const fetchApi = async () => {
-  //       setLoading(true);
-
-  //       const result = await searchService.search(debounced);
-
-  //       setSearchResult(result);
-  //       setLoading(false);
-  //     };
-  //     fetchApi();
-  //   }, [debounced]);
-
+  useEffect(() => {
+    if (!debounced.trim()) {
+      // setSearchResult([]);
+      return;
+    }
+    dispatch(getProducts({ searchValue }))
+  }, [dispatch, debounced, searchValue]);
+  const products = useSelector((state) => state.products?.products?.products);
+  const navigate = useNavigate()
   return (
     <HeadlessTippy
       appendTo={() => document.body}
       interactive={true}
-      visible={showResult && searchResult.length > 0}
+      // visible={products === true  : true ? false }
       // visible={true}
       render={(attrs) => (
         <div className="search-result" tabIndex="-1" {...attrs}>
           <PopperWrapper>
-            <h3 className="search-title">accounts</h3>
-
-            {/* {searchResult.map((result) => (
-              <AccountItem key={result.id} data={result} />
-            ))} */}
+            <h2 className="search-title">Kết quả</h2>
+            {products && products.slice(0, 3).map((product) => {
+              return (
+                <Link className="row p-3">
+                  <div className="col col-12 d-flex">
+                    <img src={product.imageUrl} alt={product.name} className="col col-2 mx-5" />
+                    <div className='col col-10'>
+                      <h3 className=''>{product.name}</h3>
+                      <h3 >{product.basePrice}</h3>
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+            {products && products.length > 3 && (
+              // Hiển thị liên kết "Xem thêm" chỉ khi có hơn 3 sản phẩm
+              <Link to={`/Products?search=${searchValue}`} className="d-flex justify-content-center align-items-center">
+                Xem thêm
+              </Link>
+            )}
           </PopperWrapper>
         </div>
       )}
@@ -84,7 +94,7 @@ const Search = () => {
         )}
 
         {loading && <FontAwesomeIcon className="loading" icon={faSpinner} />}
-        <button className="search-btn" onMouseDown={(e) => e.preventDefault()}>
+        <button className="search-btn" onMouseDown={(e) => navigate(`/Products?search=${searchValue}`)}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </div>

@@ -4,9 +4,15 @@ import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getProductById } from '~/features/singleProduct/singleProductSlice';
+import { getReviews } from '~/features/reviews/reviewsSlice';
 const SingleProduct = () => {
+  let { id } = useParams();
   const [quantity, setQuantity] = useState(1);
-  var settings = {
+  const settings = {
     dots: true,
     infinite: false,
     speed: 500,
@@ -40,6 +46,15 @@ const SingleProduct = () => {
       },
     ],
   };
+
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.singleProduct?.product);
+  const reviews = useSelector((state) => state.reviews);
+  useEffect(() => {
+    dispatch(getProductById({ id }));
+    dispatch(getReviews({ id }));
+  }, [dispatch, id]);
+
   return (
     <>
       <div className="SingleProduct-view py-5">
@@ -49,7 +64,7 @@ const SingleProduct = () => {
               <div className="image-wrapper py-5 bg-body border border-1 rounded-3">
                 <Carousel>
                   <div>
-                    <img src="image/Phukiengaming-128x129.webp" alt="" />
+                    <img src={product.imageUrl} alt="a" />
                   </div>
                   <div>
                     <img src="image/Phukiengaming-128x129.webp" alt="" />
@@ -75,19 +90,20 @@ const SingleProduct = () => {
             <div className="col-lg-6 col-12">
               <div className="product-details p-3 ms-5">
                 <div className="product-info w-100">
-                  <div className="product-name fs-1 fw-bold mb-5">IPPPP</div>
+                  <div className="product-name fs-1 fw-bold mb-5">{product.name}</div>
                 </div>
                 <div className="product-description">
-                  <p className="fs-2 text-body-tertiary lh-base">dsadsadsadsadsadsadsa</p>
+                  <p className="fs-2 text-body-tertiary lh-base">{product.description}</p>
                 </div>
+
                 <div className="product-count border border-1 rounded-3 w-100">
                   <div className="flex-box d-flex justify-content-between align-items-center border-bottom">
                     <h6 className="fs-3">Price</h6>
-                    <span className="fw-medium fs-4">$100</span>
+                    <span className="fw-medium fs-4">{product.basePrice}</span>
                   </div>
                   <div className="flex-box d-flex justify-content-between align-items-center border-bottom">
                     <h6>Status</h6>
-                    <span className="fw-medium fs-4">100</span>
+                    <span className="fw-medium fs-4">{product.quantity}</span>
                   </div>
                   <div className="flex-box d-flex justify-content-between align-items-center border-bottom">
                     <h6>Color</h6>
@@ -110,7 +126,7 @@ const SingleProduct = () => {
                   <div className="flex-box d-flex justify-content-between align-items-center border-bottom">
                     <h6>Reviews</h6>
                     <Rating
-                      value={3}
+                      value={product.averageRating}
                       readOnly
                       // text={`${product.reviewQuantity} reviews`}
                     />
@@ -124,8 +140,8 @@ const SingleProduct = () => {
                         </option>
                       ))}
                     </select> */}
-                    <select>
-                      {[...Array(10).keys()].map((x) => (
+                    <select value={quantity} onChange={(e) => setQuantity(e.target.value)}>
+                      {[...Array(product.quantity).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
                         </option>
@@ -149,11 +165,7 @@ const SingleProduct = () => {
           <div className="row">
             <div className="col-12">
               <h1>Description</h1>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur nisi similique illum aut perferendis
-                voluptas, quisquam obcaecati qui nobis officia. Voluptatibus in harum deleniti labore maxime officia
-                esse eos? Repellat?
-              </p>
+              <p>{product.description}</p>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import ForgotPassword from '~/pages/Auth/ForgotPassword/ForgotPassword';
 import Login from '~/pages/Auth/Login/Login';
 import Login2 from '~/pages/Auth/Login2';
 import Register from '~/pages/Auth/Register/Register';
+
 import Blogs from '~/pages/Blogs/Blogs';
 import Cart from '~/pages/Cart/Cart';
 import Checkout from '~/pages/Checkout/Checkout';
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         element: <OurStore />,
       },
       {
-        path: 'SingleProduct',
+        path: ':id',
         element: <SingleProduct />,
       },
       {
@@ -61,15 +62,16 @@ const router = createBrowserRouter([
       },
       {
         path: 'Login',
-        element: <Login />,
+        element: <Login2 />,
       },
+
       {
         path: 'ForgotPassword',
         element: <ForgotPassword />,
       },
       {
         path: 'Register',
-        element: <Register />,
+        element: <Login2 />,
       },
       {
         path: 'login2',
