@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { login } from '~/features/auth/authSlice';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const dispatch = useDispatch()
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
     console.log(showPassword);
   };
+  const handleLogin = () => {
+    dispatch(login({ email, password }))
+  }
+  console.log('email', email)
+  console.log('password', password)
   return (
     <>
       <section className="login-wrapper py-5">
@@ -23,6 +32,8 @@ const Login = () => {
                       name="email"
                       placeholder="Email@example.com"
                       className="form-control fs-3 bg-body-tertiary"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
                     />
                   </div>
                   <div className="password-wrapper border border-1 rounded-3">
@@ -46,6 +57,7 @@ const Login = () => {
                     <button
                       type="submit"
                       className=" round-black-btn w-100 text-uppercase d-flex align-items-center justify-content-center "
+                      onClick={handleLogin}
                     >
                       Login
                     </button>
