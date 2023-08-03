@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -7,68 +8,63 @@ import { login, registerUser } from '~/features/auth/authSlice';
 
 function Login2() {
   const [signIn, setSignIn] = useState(false);
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  const passwordRef = useRef(null);
+  const confirmPasswordRef = useRef(null);
+  // const [message, setMessage] = useState("");
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch()
+  const account = useSelector((state) => state.auth?.account);
+  const register = useSelector((state) => state.auth?.register);
   useEffect(() => {
-    // Lấy URL hiện tại
     const currentUrl = window.location.pathname;
-    // Kiểm tra xem URL có chứa '/login' hay '/register' không và cập nhật trạng thái signIn tương ứng
     if (currentUrl.includes('/login')) {
       setSignIn(false);
     } else if (currentUrl.includes('/register')) {
       setSignIn(true);
     }
   }, []);
-  const dispatch = useDispatch()
-
-  const account = useSelector((state) => state.auth?.account);
-  const register = useSelector((state) => state.auth?.register);
-
   const navigate = useNavigate();
   useEffect(() => {
     if (account?.token) {
       navigate('/');
     }
   }, [account, navigate]);
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [message, setMessage] = useState("");
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
   const handleToggleConFirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
-  console.log('email', email)
-  console.log('password', password)
+  useEffect(() => {
+    if (register.message) {
+      toast.success(register.message);
+    }
+  }, [register])
   const handleLogin = () => {
-    dispatch(login({ email, password }))
+    dispatch(login({ email: emailRef.current.value, password: passwordRef.current.value }));
   }
   const handleRegister = async () => {
     try {
-      await dispatch(registerUser({ name, phone, email, password, confirmPassword }));
-      toast.success(message);
+      await dispatch(registerUser({
+        name: nameRef.current.value,
+        phone: phoneRef.current.value,
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+        confirmPassword: confirmPasswordRef.current.value,
+      }));
+      nameRef.current.value = '';
+      phoneRef.current.value = '';
+      emailRef.current.value = '';
+      passwordRef.current.value = '';
+      confirmPasswordRef.current.value = '';
     } catch (error) {
-      // Xử lý lỗi đăng ký và hiển thị toast lỗi
       toast.error('Đã có lỗi xảy ra khi đăng ký!');
     }
   };
-  useEffect(() => {
-    if (register) {
-      setName("");
-      setPhone("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-      setMessage(register.message);
-    }
-  }, [register]);
 
   return (
     <>
@@ -84,8 +80,9 @@ function Login2() {
                 placeholder="Your Name"
                 id=""
                 className="form-control fs-3 bg-body-tertiary"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                // value={name}
+                // onChange={(e) => setName(e.target.value)}
+                ref={nameRef}
 
               />
             </div>
@@ -95,8 +92,10 @@ function Login2() {
                 name="email"
                 placeholder="Email@example.com"
                 className="form-control fs-3 bg-body-tertiary"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                // value={email}
+                // onChange={(e) => setEmail(e.target.value)}
+                ref={emailRef}
+
               />
             </div>
             <div className="tel-wrapper border border-1 rounded-3">
@@ -106,8 +105,9 @@ function Login2() {
                 placeholder="Your Phone number"
                 id=""
                 className="form-control fs-3 bg-body-tertiary"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                // value={phone}
+                // onChange={(e) => setPhone(e.target.value)}
+                ref={phoneRef}
 
               />
             </div>
@@ -115,9 +115,11 @@ function Login2() {
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
+                // onChange={(e) => setPassword(e.target.value)}
                 className="form-control fs-3 bg-body-tertiary"
-                value={password}
+                // value={password}
+                ref={passwordRef}
+
               />
               <span className="password-toggle-icon" onClick={handleTogglePassword}>
                 <i className={showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
@@ -127,9 +129,11 @@ function Login2() {
               <input
                 type={showConfirmPassword ? 'text' : 'password'}
                 placeholder="Confirm Password"
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                // onChange={(e) => setConfirmPassword(e.target.value)}
                 className="form-control fs-3 bg-body-tertiary"
-                value={confirmPassword}
+                // value={confirmPassword}
+                ref={confirmPasswordRef}
+
               />
               <span className="password-toggle-icon" onClick={handleToggleConFirmPassword}>
                 <i className={showConfirmPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
@@ -168,8 +172,9 @@ function Login2() {
                 name="email"
                 placeholder="Email@example.com"
                 className="form-control fs-3 bg-body-tertiary"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                // value={email}
+                // onChange={(e) => setEmail(e.target.value)}
+                ref={emailRef}
 
               />
             </div>
@@ -177,9 +182,11 @@ function Login2() {
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
+                // onChange={(e) => setPassword(e.target.value)}
                 className="form-control fs-3 bg-body-tertiary"
-                value={password}
+                // value={password}
+                ref={passwordRef}
+
               />
               <span className="password-toggle-icon" onClick={handleTogglePassword}>
                 <i className={showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
