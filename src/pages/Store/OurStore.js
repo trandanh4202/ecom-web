@@ -1,6 +1,7 @@
 import { faBars, faFilter, faRotateRight, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import Pagination from '~/components/pagination/Pagination';
@@ -17,37 +18,55 @@ const OurStore = () => {
   const [selectedBrands, setSelectedBrands] = useState(null);
   const [selectedSorts, setsSlectedSorts] = useState(null);
   const [priceFrom, setPriceFrom] = useState(null);
-  const [priceTo, setPriceTo] = useState(null);
-  const [hasPrice, setHasPrice] = useState(false);
-  const togglePopUp = () => {
-    setIsOpen(!isOpen);
+
+  const fromRef = useRef(null);
+  const toRef = useRef(null);
+  const handlePriceFromChange = (event) => {
+    fromRef.current = event.target.value;
   };
 
+  const handlePriceToChange = (event) => {
+    toRef.current = event.target.value;
+  };
   const [searchParams, setSearchParams] = useSearchParams();
-
   const currentPageQuery = searchParams.get("page") || null;
   const searchValue = searchParams.get("search") || null;
-
-  const [paginationModel, setPaginationModel] = useState({
-    page: 1,
-    pageSize: 8,
-  });
   const products = useSelector((state) => state.products?.products?.products);
   const totalPage = useSelector((state) => state.products?.products?.pagination?.totalPage);
   const brands = useSelector((state) => state.brands?.brands);
   const categories = useSelector((state) => state.categories?.categories);
   const dispatch = useDispatch()
-
-
+  const [paginationModel, setPaginationModel] = useState({
+    page: 1,
+    pageSize: 8,
+  });
   useEffect(() => {
-    // paginationModel.page = currentPageQuery
-    dispatch(getProducts({ searchValue, selectedSorts, currentPageQuery, selectedCategories, selectedBrands }));
+    dispatch(getProducts({
+      searchValue,
+      from: fromRef.current,
+      to: toRef.current,
+      selectedSorts, currentPageQuery, selectedCategories, selectedBrands,
+    }));
   }, [dispatch, searchValue, selectedSorts, currentPageQuery, selectedCategories, selectedBrands]);
-  console.log(selectedSorts)
+  const togglePopUp = () => {
+    setIsOpen(!isOpen);
+  };
+  const handleSearch = () => {
+    // Gọi API ở đây với giá trị từ các trường "Price From" và "Price To"
+    dispatch(getProducts({
+      searchValue,
+      from: fromRef.current,
+      to: toRef.current,
+      selectedSorts, currentPageQuery, selectedCategories, selectedBrands,
+    }));
+  };
   useEffect(() => {
     dispatch(getCategories())
     dispatch(getBrands())
   }, [])
+
+  console.log('from', fromRef)
+  console.log('from', toRef)
   return (
     <>
       <div className="toggle-filter display-mobile mt-3 ms-3">
@@ -256,8 +275,8 @@ const OurStore = () => {
                 </div>
                 <div className="filter-card mb-3 bg-body rounded-3 p-3">
                   <h3 className="filter-title mb-3  fw-medium">Color </h3>
-                  <form
-                    className="d-flex w-100 flex-column align-items-center justify-content-center from-price "
+                  <div
+                    className="form p-0 d-flex w-100 flex-column align-items-center justify-content-center from-price "
                   // onSubmit={handleSubmit} // sử dụng hàm handleSubmit để xử lý sự kiện submit
                   >
                     <div className="d-flex w-100 justify-content-between from-price ">
@@ -265,23 +284,21 @@ const OurStore = () => {
                         type="input"
                         name="from"
                         placeholder="Price from"
-                        value={priceFrom}
-                        onChange={(e) => setPriceFrom(e.target.value)}
+                        onChange={handlePriceFromChange}
                         className="input-price fs-3 border rounded-3 border-1 p-2"
                       />
                       <input
                         type="input"
                         name="to"
                         placeholder="Price to"
-                        value={priceTo}
-                        onChange={(e) => setPriceTo(e.target.value)}
+                        onChange={handlePriceToChange}
                         className="input-price  fs-3 border rounded-3 border-1 p-2"
                       />
                     </div>
-                    <button type="submit" className="w-50 fs-3 btn btn-danger">
+                    <button type="submit" onClick={handleSearch} className="w-50 fs-3 btn btn-danger">
                       Check
                     </button>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>

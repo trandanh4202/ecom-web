@@ -6,6 +6,8 @@ import authReducer from './auth/authSlice';
 import categoriesReducer from './category/categoriesSlice';
 import brandsReducer from './brands/brandsSlice';
 import reviewsReducer from './reviews/reviewsSlice';
+import addressesReducer from './address/addressSlice';
+import ghnReducer from './GHN/ghnSlice';
 
 export const store = configureStore({
   reducer: {
@@ -15,5 +17,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     brands: brandsReducer,
     reviews: reviewsReducer,
+    addresses: addressesReducer,
+    ghn: ghnReducer,
   },
 });

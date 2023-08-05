@@ -24,9 +24,11 @@ export const createProduct = createAsyncThunk('products/createProduct', async (p
 
 export const getProducts = createAsyncThunk(
   'products/getProducts',
-  async ({ searchValue='',selectedSorts='', currentPageQuery = 1,selectedCategories,selectedBrands}) => {
+  async ({ searchValue='',from, to, selectedSorts='', currentPageQuery = 1,selectedCategories,selectedBrands}) => {
     console.log(selectedSorts)
     console.log(currentPageQuery)
+    console.log(from)
+    console.log(to)
     let link = `/api/Products?sortBy=${selectedSorts}&page=${currentPageQuery}&pageSize=8`;
     console.log('categories',selectedCategories)
 
@@ -39,6 +41,12 @@ export const getProducts = createAsyncThunk(
      }
     if(searchValue !== null){
       link += `&search=${searchValue}`;
+    }
+    if(selectedBrands !== null){
+      link += `&brandId=${selectedBrands}`;
+     }
+    if(from !== null && to !== null){
+      link += `&from=${from}&&to=${to}`;
     }
      console.log(link)
     const response = await axios.get(link);
